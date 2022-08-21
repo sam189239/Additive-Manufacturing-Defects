@@ -3,7 +3,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 # Read the original image
-img = cv2.imread(r"C:\Users\Abhishek\Desktop\test\bottom_1.tif")
+# img = cv2.imread(r"C:\Users\Abhishek\Desktop\test\bottom_1.tif")
+img = cv2.imread(r"Optical Images - JAM Lab\H13\A1\bottom_1.tif")
 
 # Display original image
 # cv2.imshow('Original', img)
