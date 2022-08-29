@@ -47,9 +47,9 @@ titles = ['Given Image','BINARY','BINARY_INV','TRUNC','TOZERO','TOZERO_INV']
 images = [img, thresh1, thresh2, thresh3, thresh4, thresh5]
 plt.figure()
 for i in range(6):
-    plt.subplot(2,3,i+1),plt.imshow(images[i],'gray',vmin=0,vmax=255)
-    plt.title(titles[i])
-    plt.xticks([]),plt.yticks([])
+   plt.subplot(2,3,i+1),plt.imshow(images[i],'gray',vmin=0,vmax=255)
+   plt.title(titles[i])
+   plt.xticks([]),plt.yticks([])
 plt.show()
  
 # Sobel Edge Detection
@@ -111,28 +111,29 @@ if circles is not None:
    for (x, y, r) in circles:
       cv2.circle(output, (x, y), r, (0, 255, 0), 2)
 # show the output image
-# cv2.imshow("circle",output)
-# cv2.waitKey(0)
+
 
 contour_list = []
 count = 0
 for contour in contours:
-    approx = cv2.approxPolyDP(contour,0.01*cv2.arcLength(contour,True),True)
-    area = cv2.contourArea(contour)
-    if ((len(approx) > 12) & (area > 0)): #& cv2.isContourConvex(approx)
-         count+=1
-         contour_list.append(contour)
-      #area print area threshold
-      #physics behind contour convex
+   approx = cv2.approxPolyDP(contour,0.01*cv2.arcLength(contour,True),True)
+   area = cv2.contourArea(contour)
+   if ((len(approx) > 12) & (area > 0)): #& cv2.isContourConvex(approx)
+      count+=1
+      contour_list.append(contour)
 
-#update doc 
-#hough didnt work, number of edges of 12, iscontourconvex not working properly
-#put output in doc
-#median of all points, mean of distance and devioation , deviation divided by mean, set up threshold, set up a threshold
+
+for contour in contours:
+   # median = 
+   approx = cv2.approxPolyDP(contour,0.01*cv2.arcLength(contour,True),True)
+   area = cv2.contourArea(contour)
+   if ((len(approx) > 12) & (area > 0)): #& cv2.isContourConvex(approx)
+      print(np.shape(contour))
+
+
 print(count)
 cv2.drawContours(op, contour_list,  -1, (255,0,0), 2)
-# cv2.imshow('Objects Detected',contour_img)
-# cv2.waitKey(0)
+
 
 plt.figure()
 plt.subplot(221)
@@ -148,9 +149,10 @@ plt.subplot(224)
 plt.imshow(op, cmap='gray')
 plt.title('Circles')
 plt.show()
-cv2.imshow('img',img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+
+# cv2.imshow('img',img)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
 
 # for cnt in contours:
 #     approx = cv2.approxPolyDP(cnt, .03 * cv2.arcLength(cnt, True), True)
@@ -163,3 +165,13 @@ cv2.destroyAllWindows()
 #         print(area)
 #         if circleArea == area:
 #             cv2.drawContours(img, [cnt], 0, (220, 152, 91), -1)
+
+
+# TODO #
+
+#update doc 
+#hough didnt work, number of edges of 12, iscontourconvex not working properly
+#put output in doc
+#median of all points, mean of distance and devioation , deviation divided by mean, set up threshold, set up a threshold
+#area print area threshold
+#physics behind contour convex, findcontours
