@@ -78,6 +78,7 @@ if type == "OM":
             complete_stats_single = om.sum_stats(stats_single)
             stats_tot_single = pd.DataFrame(stats_single)
             st.write(stats_tot_single)
+            stats_tot_single.to_csv("Out/OM_single.csv")
             if show_all_single:
                 st.pyplot(fig=fig_single)
     st.markdown("""---""") 
@@ -94,6 +95,7 @@ if type == "OM":
         complete_stats = om.sum_stats(stats)
         stats_tot_all = pd.DataFrame(complete_stats)
         st.write(stats_tot_all)
+        stats_tot_all.to_csv("Out/OM_mult.csv")
         
         if show_all:
             st.pyplot(fig=fig)
@@ -140,6 +142,7 @@ if type == "SEM":
             complete_stats_single = sem.sum_stats(stats_single)
             stats_tot_single = pd.DataFrame(stats_single)
             st.write(stats_tot_single)
+            stats_tot_single.to_csv("Out/SEM_single.csv")
             if show_all_single:
                 st.pyplot(fig=fig_single)
     st.markdown("""---""") 
@@ -156,7 +159,7 @@ if type == "SEM":
         complete_stats = sem.sum_stats(stats)
         stats_tot_all = pd.DataFrame(complete_stats)
         st.write(stats_tot_all)
-        
+        stats_tot_all.to_csv("Out/SEM_mult.csv")
         if show_all:
             st.pyplot(fig=fig)
     st.markdown("""---""") 
