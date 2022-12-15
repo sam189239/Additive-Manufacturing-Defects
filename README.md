@@ -2,7 +2,8 @@
 
 
 How to run the app:
- streamlit run app_final.py
+
+`streamlit run app_final.py`
 
 Files:
 - app_final.py - Streamlit app for web interface of algorithm for OM and SEM image processing
